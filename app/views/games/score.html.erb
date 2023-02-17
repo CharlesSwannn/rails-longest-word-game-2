@@ -1,4 +1,11 @@
-<%= @answer %>
+<% if @valid_answer %>
+  <% if @test["found"] == true %>
+    <p><em>Congrats 🎉</em>, <%= @answer %> is a valid word!</p>
+    <% else %>
+    <p><em>Sorry </em>😅, <%= @answer %> is not a valid english word!</p>
+  <% end %>
+  <% else %>
+  <p>Sorry, <%= @answer %> is not a valid option</p>
+<% end %>
 
-
-<p><%= link_to "Play again", new_path, style:"text-decoration: none; color:black" %></p>
+  <p><%= link_to "Play again", new_path, style:"text-decoration: none; color:black" %></p>

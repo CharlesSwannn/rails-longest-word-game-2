@@ -11,5 +11,6 @@ hello from "new"
     <input type="text" name="answer">
     <input type="submit" value="Play!">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag 'letters', @letters %>
   </form>
 </div>

@@ -7,12 +7,18 @@ class GamesController < ApplicationController
   def score
     require "json"
     require "open-uri"
-    url = "https://wagon-dictionary.herokuapp.com/"
+    url = "https://wagon-dictionary.herokuapp.com/#{params[:answer]}"
 
     serialized_dictionary = URI.open(url).read
 
-    beatles = JSON.parse(serialized_dictionary)
-    raise
+    @test = JSON.parse(serialized_dictionary)
+    @letters = params[:letters].split(" ")
     @answer = params[:answer]
+
+    if (@letters & @answer.split("")).sort == @answer.split("").sort
+      @valid_answer = true
+    else
+      @valid_answer = false
+    end
   end
 end
