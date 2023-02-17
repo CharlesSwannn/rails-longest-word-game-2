@@ -1,0 +1,15 @@
+hello from "new"
+<div class="letters" style="display: flex; justify-content:center;">
+  <% @letters.each do |letter| %>
+      <button disabled style="padding:3vh; margin-left:1vh; background-color:lightgreen; font-size:larger;"><%= letter %></button>
+  <% end %>
+</div>
+
+<div class="form" style="display: flex; justify-content:center; margin-top:2vh;">
+  <form action="score">
+    <label for="score">What's the longest word you can find?</label>
+    <input type="text" name="answer">
+    <input type="submit" value="Play!">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  </form>
+</div>
